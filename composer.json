@@ -1,5 +1,7 @@
 {
     "name": "avadaneidanut/classpipe",
+    "type": "library",
+    "keywords": ["class","php","pipes","methods","dynamically"],
     "description": "PHP Class Pipes",
     "authors": [
         {
