@@ -18,3 +18,6 @@ $logger->subscriber('store', function($message, $owner){
 
 // calling store method again after adding subscriber
 $logger->store('Hello', 'Aligator');
+
+// show all registered pipes
+$logger->pipes();

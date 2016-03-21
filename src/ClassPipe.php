@@ -61,25 +61,35 @@ Class ClassPipe implements Pipeable{
 	 * @return void
 	 */
 	public function pipes(){
+		print('--------------------------------' . PHP_EOL);
+
+		print('Registered pipes/arguments' . PHP_EOL . PHP_EOL);
+
 		// calculate the padding
 		$lenghts = array_map('strlen', array_keys($this->pipes));
 		$pad     = max($lenghts);
 
 		foreach($this->pipes as $key => $signature){
 			// print pipe name
-			print(str_pad($key, $pad, ' ', STR_PAD_RIGHT) . ': ');
+			print(str_pad($key, $pad, ' ', STR_PAD_RIGHT) . ' ');
 
 			$signatures = explode(',', $signature);
 
 			// print signatures
 			$first = true;
 			foreach($signatures as $signature){
-				if($first)	$first = false;
-				else print(PHP_EOL);
-
+				if($first){
+					$first = false;
+					$spaces = '';
+				}
+				else{
+					$spaces = PHP_EOL . str_pad('', $pad + 1, ' ', STR_PAD_LEFT);
+				}
 				// print signature
-				print(str_pad($signature, $pad + 2, ' ', STR_PAD_LEFT));
+				print($spaces . $signature);
 			}
+
+			print(PHP_EOL);
 		}
 	}
 
